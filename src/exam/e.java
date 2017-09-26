@@ -8,264 +8,181 @@ import java.time.LocalTime;
 import java.util.Random;
 public class e {
 	
-	static Scanner sc = new Scanner(System.in);
-	static Random rand = new Random();
-	static int n = rand.nextInt(999)+0;
-	static int count = 0;
-	static String choice = "";
-	
-	public static void ran(int n ,int num,int count){
-		if(num>n){
-			System.out.printf("More than (trise:%d)",count);
-		}
-		else if(num<n){
-			System.out.printf("Less than (trise:%d)",count);
-		}
-		else if(num==n){
-			System.out.println("Correct! Well done!");
-			System.out.printf("Total tries = %d\n",count);
-			System.out.println("--------");
-			System.out.print("Play again ,quit :");
-			choice = sc.next();
-		}
+	public static void change(){
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Input change: ");
+		int counter = 0;
+		double b = sc.nextDouble();
+		int a = (int)b;
+		double c = b-a;
+		System.out.println("1000-baht banknotes = "+ a/1000);
+		counter += a/1000;
+		a = a-a/1000*1000;
+		System.out.println("500-baht banknotes = "+ a/500);
+		counter += a/500;
+		a=a-a/500*500;
+		System.out.println("100-baht banknotes = "+ a/100);
+		counter += a/100;
+		a=a-a/100*100;
+		System.out.println("50-baht banknotes = "+ a/50);
+		counter += a/50;
+		a=a-a/50*50;
+		System.out.println("20-baht banknotes = "+a/20);
+		counter += a/20;
+		a=a-a/20*20;
+		System.out.println("10-baht coins = "+a/10);
+		counter += a/10;
+		a=a-a/10*10;
+		System.out.println("5-baht coins = "+a/5);
+		counter += a/5;
+		a=a-a/5*5;
+		System.out.println("1-baht coins = "+a/1);
+		counter += a/1;
+		a=a-a/1*1;
+		System.out.println("50-satang coins = "+(int)(c/0.5));
+	        counter += (int)(c/0.5);
+	        c=c-(int)(c/0.5)*0.5;
+		System.out.println("25-satang coins = "+(int)(c/0.25));
+		counter += (int)(c/0.25);
+		c=c-c/0.25*0.25;
+		System.out.print("Total number of banknotes and coins = "+ counter);
 	}
+	 public static void menu(){
+		 System.out.println("*--------- Welcome to SKE Restaurant ---------*");
+			System.out.printf("|  1.) Pizza\t %5d Bath.                  |\n",250);
+			System.out.printf("|  2.) Chickens\t %5d Bath.                  |\n",120);
+			System.out.printf("|  3.) Coke\t %5d Bath.                  |\n",45);
+			System.out.printf("|  4.) Total                                  |\n");
+			System.out.printf("|  5.) Exit                                   |\n");
+			System.out.println("*---------------------------------------------*");
+	 }
+	 public static void total(int pizza,int chickens,int coke){
+		 System.out.println("*------ Menu ------+-- Qty --+-- Price --*");
+		 int piz= pizza*250;
+		 int chi=chickens*120;
+		 int cok=coke*45;
+		 if(piz>0){
+			 System.out.printf("| Pizza\t\t   |   %5d |  %5d    |\n",pizza,piz);
+		 }
+		 if(chi>0){
+			 System.out.printf("| Chickens\t   |   %5d |  %5d    |\n",chickens,chi);
+		 }
+		 if(cok>0){
+			 System.out.printf("| Coke\t\t   |   %5d |  %5d    |\n",coke,cok);
+		 }
+		 System.out.println("+------------------+---------+-----------+");
+		 System.out.printf("| Total\t\t             |  %5d    |\n",(piz+chi+cok));
+		 System.out.println("*------------------+---------+-----------*");
+	 }
+	 
+	 public static void recepit1(int pizza,int chickens,int coke){
+		 
+		 int piz= pizza*250;
+		 int chi=chickens*120;
+		 int cok=coke*45;
+		 double z = (piz+chi+cok)-(piz+chi+cok)*0.95;
+		 double x = (piz+chi+cok)-(piz+chi+cok)*0.9;
+		 double y = (piz+chi+cok)*0.85;
+		 System.out.println("+----------------------------------------+");
+		 System.out.println("|                                        |");
+		 System.out.println("+                RECEIPT                 +");
+		 System.out.println("|                                        |");
+		 System.out.println("+----------------------------------------+");
+		 System.out.println("| Menu             | Quantity|  Price    |  ");
+		 if(piz>0){
+			 System.out.printf("| Pizza\t\t   |   %5d |  %5d    |\n",pizza,piz);
+		 }
+		 if(chi>0){
+			 System.out.printf("| Chickens\t   |   %5d |  %5d    |\n",chickens,chi);
+		 }
+		 if(cok>0){
+			 System.out.printf("| Coke\t\t   |   %5d |  %5d    |\n",coke,cok);
+		 }
+		 System.out.println("+------------------+---------+-----------+");
+		 System.out.printf("| vat 5%%                            %.2f|\n",z);
+		 System.out.printf("| member discount 10%%               %.2f|\n",x);
+		 System.out.printf("| Total\t\t             |    %.2f |\n",y);
+		 System.out.println("*------------------+---------+-----------*");
+		 change();
+	 }
+ public static void receipt(int pizza,int chickens,int coke){
+		 
+		 int piz= pizza*250;
+		 int chi=chickens*120;
+		 int cok=coke*45;
+		 
+		 System.out.println("+----------------------------------------+");
+		 System.out.println("|                                        |");
+		 System.out.println("+                RECEIPT                 +");
+		 System.out.println("|                                        |");
+		 System.out.println("+----------------------------------------+");
+		 System.out.println("| Menu             | Quantity|  Price    |  ");
+		 if(piz>0){
+			 System.out.printf("| Pizza\t\t   |   %5d |  %5d    |\n",pizza,piz);
+		 }
+		 if(chi>0){
+			 System.out.printf("| Chickens\t   |   %5d |  %5d    |\n",chickens,chi);
+		 }
+		 if(cok>0){
+			 System.out.printf("| Coke\t\t   |   %5d |  %5d    |\n",coke,cok);
+		 }
+		 System.out.println("+------------------+---------+-----------+");
+		 System.out.printf("| vat 5%%                            %.2f|\n",(piz+chi+cok)-(piz+chi+cok)*0.95);
+		 System.out.printf("| Total\t\t             |  %.2f   |\n",(piz+chi+cok)*0.95);
+		 System.out.println("*------------------+---------+-----------*");
+		 change();
+	 }
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int pizza = 0;
+		int chickens = 0;
+		int coke = 0;
 		
-		System.out.println("Note:the random number is"+n);
+		menu();
 		while(true){
-			choice = "";
-			System.out.printf("\nGress a number(0-999): ");
-			int num = sc.nextInt();
-			count++;
-			ran( n , num,count);
-			if(choice.equals("P")){
-				n = rand.nextInt(999)+0;
-				System.out.println("Note:the random number is"+n);
-				count=0;
-			}
-			else if(choice.equals("Q")){
-				System.out.print("bye ");
+			System.out.printf("\nEnter your Choice: ");
+			int num =sc.nextInt();
+			if(num==5){
+				System.out.print("Do you have a member card?(yes/no): ");
+				String card = sc.next();
+				if(card.equals("yes")){
+					recepit1( pizza, chickens, coke);
+					System.out.print("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
+					System.out.println("============== Thank you =================");
+					System.out.print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+				}
+				if(card.equals("no")){
+					receipt(pizza,chickens,coke);
+					System.out.printf("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
+					System.out.println("============== Thank you =================");
+					System.out.print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+				}
+				
+				
 				break;
 			}
+			else if(num==4){
+				
+				total(pizza,chickens,coke);
+				
+			}
+			else {
+				System.out.print("Enter Quantity:");
+				int num1=sc.nextInt();
+				if(num==3){
+					coke=coke+num1;	
+				}
+				else if(num==2){
+					chickens=chickens+num1;
+				}
+				else if(num==1){
+					pizza=pizza+num1;
+				}
+				
+			}
 		}
+		
+		
 	}
 }
-// public static void table(int pizzas, int chickens, int coke) {
-//  System.out.print("+------ Menu ------+-- Qty --+-- Price --+\n");
-//  int pizpr = pizzas * 250;
-//  int chkpr = chickens * 120;
-//  int cokpr = coke * 45;
-//  if (pizzas > 0) {
-//   System.out.printf("| Pizza\t\t   |   %5d |     %5d |\n", pizzas, pizpr);
-//  }
-//  if (chickens > 0) {
-//   System.out.printf("| Chickens\t   |   %5d |     %5d |\n", chickens, chkpr);
-//  }
-//  if (coke > 0) {
-//   System.out.printf("| Coke\t\t   |   %5d |     %5d |\n", coke, cokpr);
-//  }
-//  System.out.print("+----------------------------+-----------+\n");
-//  System.out.printf("| Total\t\t\t     |     %5d |\n", pizpr + chkpr + cokpr);
-//  System.out.print("+----------------------------+-----------+\n");
-// }
-//
-// public static void receipt(int p, int c, int cc) {
-//  int pizpr = p * 250;
-//  int chkpr = c * 120;
-//  int cokpr = cc * 45;
-//  int sum = pizpr + chkpr + cokpr;
-//  int vat = (sum * 10) / 100;
-//  LocalDate date = LocalDate.now();
-//  LocalTime time = LocalTime.now();
-//  System.out.println("()---------------------------------------------()");
-//  System.out.println("|-----------------------------------------------|");
-//  System.out.println("|                    RECEIPT                    |");
-//  System.out.println("|-----------------------------------------------|");
-//  System.out.println("|                          |   QTY |      TOTAL |");
-//  System.out.println("|                          |-------|------------|");
-//  if (p > 0) {
-//   System.out.printf("| PIZZA                    | %5d |      %5d |\n", p, pizpr);
-//  }
-//  System.out.println("|                          |       |            |");
-//  if (c > 0) {
-//   System.out.printf("| CHICKENS                 | %5d |      %5d |\n", c, chkpr);
-//  }
-//  System.out.println("|                          |       |            |");
-//  if (cc > 0) {
-//   System.out.printf("| COKE                     | %5d |      %5d |\n", cc, cokpr);
-//  }
-//  System.out.println("|                          |       |            |");
-//  System.out.println("|                          |       |            |");
-//  System.out.println("|                          |       |            |");
-//  System.out.printf("| VAT 10%%                  |       |      %5d |\n", vat);
-//  System.out.println("|----------------------------------|------------|");
-//  System.out.printf("| Included VAT                     |      %5d |\n", sum + vat);
-//  System.out.println("|-----------------------------------------------|");
-//  System.out.println("|================= Thank You! ==================|");
-//  System.out.println("|-----------------------------------------------|");
-//  System.out.printf("|                       %s  %s|\n", date, time);
-//  System.out.println("|-----------------------------------------------|");
-//  System.out.println("()---------------------------------------------()");
-// }
-//
-// public static void menu() {
-//  System.out.println("()------- Welcome to SKE Restaurant -------()");
-//  System.out.printf("| 1.) Pizza\t%d Baht.\t\t    |\n", 250);
-//  System.out.printf("| 2.) Chickens\t%d Baht.\t\t    |\n", 120);
-//  System.out.printf("| 3.) Coke\t%d  Baht.\t\t    |\n", 45);
-//  System.out.print("| 4.) Cancel Order\t\t\t    |\n");
-//  System.out.print("| 5.) Total\t\t\t\t    |\n");
-//  System.out.println("| 6.) Exit\t\t\t\t    |");
-//  System.out.println("()-----------------------------------------()");
-// }
-//
-// public static void main(String[] args) {
-//  Scanner bd = new Scanner(System.in);
-//  menu();
-//  int pizzas = 0;
-//  int chickens = 0;
-//  int coca = 0;
-//  while (true) {
-//   System.out.println("+------------------+");
-//   System.out.print("Enter your choice: ");
-//   int choice = bd.nextInt();
-//   if (choice == 6) {
-//    receipt(pizzas, chickens, coca);
-//    break;
-//   } else if (choice == 5) {
-//    // System.out.printf("%d %d %d", pizzas, chickens, coca);
-//    table(pizzas, chickens, coca);
-//    System.out.println();
-//   } else if (choice == 4) {
-//    System.out.println("1.) Pizza");
-//    System.out.println("2.) Chicken");
-//    System.out.println("3.) Coke");
-//    System.out.print("Choose a menu to cancel: ");
-//    int choice2 = bd.nextInt();
-//    System.out.print("Enter Quantity: ");
-//    int deamount = bd.nextInt();
-//    System.out.println();
-//    if (choice2 == 1) {
-//     pizzas = pizzas - deamount;
-//    } else if (choice2 == 2) {
-//     chickens = chickens - deamount;
-//    } else if (choice2 == 3) {
-//     coca = coca - deamount;
-//    }
-//
-//   } else {
-//    System.out.print("Enter Quantity:    ");
-//    int amount = bd.nextInt();
-//    System.out.println();
-//    if (choice == 1) {
-//     pizzas = pizzas + amount;
-//    } else if (choice == 2) {
-//     chickens = chickens + amount;
-//    } else if (choice == 3) {
-//     coca = coca + amount;
-//    }
-//   }
-//
-//  }
-// }
-//}
 
-
-
-//	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-//		Scanner sc = new Scanner(System.in);
-//		String menu = "";
-//		int x=0;
-//		System.out.print("Enter a number : ");
-//        int num =sc.nextInt();
-//        System.out.printf("Factor of %d are : \n",num);
-//        for(int i =1 ;i<=num;i++){
-//        	x=i+1;
-//        
-//        		if(num%i==0){
-//        			
-//            		System.out.println(i);
-//            		if(x%i==0){
-//                		System.out.printf("%d<----Prime Number",x);
-//        			}
-//            	
-//        	}
-//        	
-//        }
-//		while(!menu.equals("Q")){
-//			System.out.print("(A)gain or (Q)uit :");
-//			menu=sc.nextLine();
-//			if(menu.equals("A")){
-//				System.out.print("Enter a number : ");
-//		        int m =sc.nextInt();
-//		        System.out.printf("Factor of %d are : \n",m);
-//		        for(int i =1 ;i<=m;i++){
-//		        	if(m%i==0){
-//		        		System.out.println(i);
-//		        	}
-//		        }
-//			}
-//			else if(menu.equals("Q")){
-//				break;
-//			}
-//			
-//			
-//		}
-//        System.out.print("Bye Bye");
-		
-		
-		
-		
-		
-//	
-//		Scanner sc = new Scanner(System.in);
-//		String menu = "";
-//		System.out.print("Enter a number : ");
-//        int num =sc.nextInt();
-//        System.out.printf("Factor of %d are : \n",num);
-//        for(int i =1 ;i<=num;i++){
-//        	if(num%i==0){
-//        		System.out.println(i);
-//        	}
-//        }
-//		while(!menu.equals("Q")){
-//			System.out.print("(A)gain or (Q)uit :");
-//			menu=sc.next();
-//			if(menu.equals("A")){
-//				System.out.print("Enter a number : ");
-//		        int m =sc.nextInt();
-//		        System.out.printf("Factor of %d are : \n",m);
-//		        for(int i =1 ;i<=m;i++){
-//		        	if(m%i==0){
-//		        		System.out.println(i);
-//		        	}
-//		        }
-//			}
-//			else if(menu.equals("Q")){
-//				break;
-//			}
-//			
-//			
-//		}
-//        System.out.print("Bye Bye");
-        
-		
-		
-		
-		
-		
-//		Scanner sc = new Scanner(System.in);
-//        System.out.print("Enter a number : ");
-//        int num =sc.nextInt();
-//        System.out.printf("Factor of %d are : \n",num);
-//        for(int i =1 ;i<=num;i++){
-//        	if(num%i==0){
-//        		System.out.println(i);
-//        	}
-//        }
-//        
-        
-//	}
-//
-//}
