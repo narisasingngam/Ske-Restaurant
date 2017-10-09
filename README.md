@@ -1,9 +1,2 @@
-# mint
-# ske-restaurant
-# ske-restaurant
-# ske-restaurant
-# ske-restaurant
-# ske-restaurant
-# ske-restaurant
-# ske-restaurant
-# ske-restaurant
+# ske-restaurant by Narisa Singngam
+
