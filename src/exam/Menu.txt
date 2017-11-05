@@ -1,0 +1,7 @@
+pizza;		250;
+chicken;	120;
+coke;		45;
+water;		3;
+pancake;	60;
+apple;		20;
+rice;		2;
