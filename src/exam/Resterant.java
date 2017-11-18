@@ -7,8 +7,7 @@ import java.util.ArrayList;
 
 public class Resterant {
 	
-//	private String[] menuItems;
-//	private double[] prices;
+
 	
 	static private RestaurantManager restaurant = new RestaurantManager();
 	static  Scanner console = new Scanner(System.in);
@@ -37,13 +36,18 @@ public class Resterant {
 		System.out.printf("|  %d.) Total                                  |\n",menu.length+1);
 		System.out.printf("|  %d.) Exit                                   |\n",menu.length+2);
 	}
-	//use print menu() to print whole menu
+	
+	/**
+	 * use print menu() to print whole menu
+	 */
 	public static void menu() {
 		System.out.println("*--------- Welcome to SKE Restaurant ---------*");
 		printmenu();
 		System.out.println("*---------------------------------------------*");
 	}
-//calculate total price
+/**
+	 * calculate total price
+	 */
 	public static int total(){
 		int sum = 0;
 		for(int i =0;i<menu.length;i++){
